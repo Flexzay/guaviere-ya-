@@ -1,4 +1,4 @@
-document.getElementById('Contrasena').addEventListener('input', function() {
+document.getElementById('NuevaContrasena').addEventListener('input', function() {
     var password = this.value;
     var strengthText = document.getElementById('password-strength');
     var messages = [];
@@ -34,13 +34,10 @@ document.getElementById('Contrasena').addEventListener('input', function() {
     }
 });
 
-document.getElementById('registerForm').addEventListener('submit', function(event) {
+document.getElementById('passwordForm').addEventListener('submit', function(event) {
     var strengthText = document.getElementById('password-strength');
     if (strengthText.dataset.valid === 'false' || strengthText.style.display === 'none') {
         event.preventDefault();
         alert('Por favor, ingrese una contraseña válida.');
     }
 });
-
-
-

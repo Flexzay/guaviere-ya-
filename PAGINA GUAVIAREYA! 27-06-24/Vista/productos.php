@@ -9,7 +9,26 @@
     <div class="container py-5">
         <div class="col-md-12 ico-header">
             <a href="controlador.php?seccion=comida"><i class="fa fa-circle-arrow-left"></i></a>
-            <a href="controlador.php?seccion=carrito"><i class="bx bx-cart"></i></a>
+            <a style="text-decoration: none;" href="controlador.php?seccion=carrito">
+                <i class="bx bx-cart"></i>
+                <span id="contador-carrito" class="contador-carrito">
+                    <?php
+                    // Inicializar la sesión si no está ya inicializada
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
+                    }
+
+                    // Contar el número total de artículos en el carrito
+                    $contador_carrito = 0;
+                    if (isset($_SESSION['carrito'])) {
+                        foreach ($_SESSION['carrito'] as $item) {
+                            $contador_carrito += $item['cantidad'];
+                        }
+                    }
+                    echo $contador_carrito;
+                    ?>
+                </span>
+            </a>
         </div>
 
         <?php
@@ -41,9 +60,13 @@
                         </div>
                         <div class="mb-5 d-flex justify-content-between align-items-center">
                             <h3>' . $producto['Valor_P'] . '</h3>
-                            <form method="post" action="controlador.php?seccion=carrito">
+                            <form method="post" action="controlador_carrito.php?seccion=carrito" class="form-agregar">
                                 <input type="hidden" name="ID_Producto" value="' . $producto['ID_Producto'] . '">
-                                <button type="submit" class="btn btn-primary"> Agregar</button>
+                                <input type="hidden" name="Nombre_P" value="' . $producto['Nombre_P'] . '">
+                                <input type="hidden" name="Descripcion" value="' . $producto['Descripcion'] . '">
+                                <input type="hidden" name="img_P" value="' . $producto['img_P'] . '">
+                                <input type="hidden" name="Valor_P" value="' . $producto['Valor_P'] . '">
+                                <button type="submit" class="btn btn-primary btn-agregar">Agregar</button>
                             </form>
                         </div>
                     </div>
@@ -56,6 +79,8 @@
         }
         ?>
     </div>
+
+    <script src="../JS/conteo_carrito.js"></script>
 </body>
 
 </html>
