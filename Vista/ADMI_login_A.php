@@ -23,7 +23,7 @@
                 <div class="text-center mb-4">
                     <h2>ADMINISTRADOR</h2>
                 </div>
-                <form method="POST" action="controlador_usuario_admi.php">
+                <form method="POST" action="../Controladores/controlador_Usuario_admi.php">
                     <div class="input-group mb-3">
                         <input type="email" name="correo" class="form-control form-control-lg bg-light" placeholder="Correo" required>
                     </div>

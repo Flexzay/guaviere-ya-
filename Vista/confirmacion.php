@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
-  <title>GuaviareYa!</title>
-  <script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuaviareYa!</title>
+    <script>
     // Redirigir a "shop" después de 3 segundos
     setTimeout(function() {
       window.location.href = "../Controladores/controlador.php?seccion=shop";
@@ -11,16 +13,17 @@
   </script>
 </head>
 
-<body>
-    <div class="container">
-        <div class="col-md-12 ico-carro">
-            <a href="controlador.php?seccion=shop"><i class="bx bxs-home"></i></a>
+<body class="bg-light d-flex flex-column min-vh-100">
+    <div class="container my-4">
+    <div class="ico-carro">
+            <a href="controlador.php?seccion=shop" class="btn btn-link">
+                <i class="bx bxs-home"></i>
+            </a>
         </div>
 
-        <div class="subcontainer4">
-            <h1 style="text-align: center;">Gracias por tu compra</h1>
-            <center><img src="../media/check.png" alt="listo" width="400px"></center>
-            
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="mb-4">Gracias por tu compra</h1>
+            <img src="../media/check.png" alt="listo" class="img-fluid" style="max-width: 400px;">
         </div>
     </div>
 </body>

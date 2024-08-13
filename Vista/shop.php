@@ -1,10 +1,4 @@
 <?php
-
-// Evitar que el navegador almacene en caché
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-
 // Verificación de sesión
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
@@ -27,8 +21,6 @@ if (!isset($_SESSION['correo']) || $_SESSION['correo'] == "") {
   echo $seccion;?></title>
   <meta name="description" content="">
   <meta name="keywords" content="">
-
-
 </head>
 
 <body class="index-page">
@@ -157,7 +149,7 @@ if (isset($_GET['search'])) {
             <h4>Guaviareya@gmail.com</h4>
           </div>
           <div class="col-md-2 go-store">
-            
+            <a href="controlador.php?seccion=login"><button style="border-radius: 30px;">Tienda</button></a>
           </div>
           <div class="col-md-5 tlf">
             <h4>+57 3143920233</h4>
